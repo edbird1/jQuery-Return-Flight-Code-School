@@ -1,0 +1,11 @@
+$(document).ready(function() {
+  var el = $('#tour')
+  el.on("click", "button", function() {
+    $.ajax('/photos.html', {
+      data: {location: el.data('location')},
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      }
+    });
+  });
+});
