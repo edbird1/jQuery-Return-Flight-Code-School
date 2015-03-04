@@ -1,0 +1,7 @@
+$(document).ready(function() {
+	var tour = new Tour($('#paris'));
+});
+
+function Tour(el) {
+  console.log(el); 
+}
