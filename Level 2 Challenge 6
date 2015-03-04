@@ -1,0 +1,7 @@
+$(document).ready(function() { 
+  var object = new Tour();
+	console.log("A new Tour was created."); 
+});
+
+function Tour() {
+}
