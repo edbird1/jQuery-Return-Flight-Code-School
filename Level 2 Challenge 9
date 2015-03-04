@@ -1,0 +1,25 @@
+function Tour(el) {
+  this.el = el; 
+  this.fetchPhotos = function() { 
+    $.ajax('/photos.html', {
+      data: {location: $("#tour").data('location')},
+      success: function(response) {
+        $('.photos').html(response);
+      },
+      error: function() {
+        alert('There was a problem fetching the latest photos. Please try again.')
+      },
+      timeout: 3000,
+      beforeSend: function() {
+        $('#tour').addClass('is-fetching');
+      },
+      complete: function() {
+        $('#tour').removeClass('is-fetching');
+      }
+    });
+  }
+  this.el.on('click', "button", this.fetchPhotos); 
+}
+$(document).ready(function() { 
+  var paris = new Tour($('#paris'));
+});
