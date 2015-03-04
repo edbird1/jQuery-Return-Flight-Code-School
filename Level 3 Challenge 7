@@ -1,0 +1,16 @@
+$(document).ready(function() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax('/book', {
+      type: 'POST',
+      data: $('form').serialize(),
+      dataType: 'json',
+      success: function(response) {
+        var msg = $("<p></p>");
+        msg.append("Location: " + response.description + ". ");
+        msg.append("Price: " + response.price + ". "); 
+        msg.append("Nights: " + response.nights + ". ");
+        msg.append("Confirmation: " + response.confirmation + ". ");
+        $('.tour').html(msg);
+      }
+    });
