@@ -1,0 +1,11 @@
+$('button').on('click', function() {
+  $.ajax('/cities/deals', {
+    success: function(result) {
+      $.each(result, function(index, dealItem) {
+        var dealEl = $('.deal-' + index); 
+        dealEl.find('h3').html(dealItem.name);
+        dealEl.find('p').html(dealItem.price);
+      });
+    }
+  });
+});
