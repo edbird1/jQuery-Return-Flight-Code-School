@@ -1,0 +1,6 @@
+$(document).ready(function() {
+  	$('.tour').photofy();
+	});
+$.fn.photofy = function(){
+  console.log(this);
+};
