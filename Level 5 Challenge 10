@@ -1,0 +1,13 @@
+$.fn.photofy = function() {
+  this.each(function() {
+    var photo = $(this); 
+    photo.on('click.photofy', '.see-photos', function(event){
+      event.preventDefault();
+      photo.addClass('is-showing-photofy');
+    });
+  });
+}
+
+$(document).ready(function() {
+  $('.tour').photofy();
+});
